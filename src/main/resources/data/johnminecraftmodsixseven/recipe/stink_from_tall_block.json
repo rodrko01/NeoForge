@@ -1,0 +1,39 @@
+{
+  "type": "johnminecraftmodsixseven:tall_block_crafting",
+  "slot0": {
+    "item": "minecraft:blaze_powder"
+  },
+  "slot0_count": 1,
+  "slot1": {
+    "item": "minecraft:experience_bottle"
+  },
+  "slot1_count": 1,
+  "slot2": {
+    "item": "minecraft:gold_ingot"
+  },
+  "slot2_count": 1,
+  "slot3": {
+    "item": "minecraft:iron_ingot"
+  },
+  "slot3_count": 1,
+  "slot4": {
+    "item": "minecraft:iron_ingot"
+  },
+  "slot4_count": 1,
+  "slot5": {
+    "item": "minecraft:iron_ingot"
+  },
+  "slot5_count": 1,
+  "output_slot3": {
+    "id": "johnminecraftmodsixseven:stink",
+    "count": 1
+  },
+  "output_slot4": {
+    "id": "johnminecraftmodsixseven:stink",
+    "count": 1
+  },
+  "output_slot5": {
+    "id": "johnminecraftmodsixseven:stink",
+    "count": 1
+  }
+}

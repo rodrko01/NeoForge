@@ -1,0 +1,39 @@
+{
+  "type": "johnminecraftmodsixseven:tall_block_crafting",
+  "slot0": {
+    "item": "minecraft:blaze_powder"
+  },
+  "slot0_count": 1,
+  "slot1": {
+    "item": "minecraft:experience_bottle"
+  },
+  "slot1_count": 1,
+  "slot2": {
+    "item": "johnminecraftmodsixseven:component2"
+  },
+  "slot2_count": 1,
+  "slot3": {
+    "item": "johnminecraftmodsixseven:bubble2"
+  },
+  "slot3_count": 1,
+  "slot4": {
+    "item": "johnminecraftmodsixseven:bubble2"
+  },
+  "slot4_count": 1,
+  "slot5": {
+    "item": "johnminecraftmodsixseven:bubble2"
+  },
+  "slot5_count": 1,
+  "output_slot3": {
+    "id": "johnminecraftmodsixseven:bubble3",
+    "count": 1
+  },
+  "output_slot4": {
+    "id": "johnminecraftmodsixseven:bubble3",
+    "count": 1
+  },
+  "output_slot5": {
+    "id": "johnminecraftmodsixseven:bubble3",
+    "count": 1
+  }
+}

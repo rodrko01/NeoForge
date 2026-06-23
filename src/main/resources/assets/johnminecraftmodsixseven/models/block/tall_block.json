@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "upper": "johnminecraftmodsixseven:block/teepler2",
+    "lower": "johnminecraftmodsixseven:block/teepler1"
+  },
+  "elements": [
+    {
+      "name": "bottom_half",
+      "from": [0, 0, 0],
+      "to": [16, 16, 16],
+      "faces": {
+        "north": {"uv": [0, 0, 16, 16], "texture": "#lower"},
+        "east":  {"uv": [0, 0, 16, 16], "texture": "#lower"},
+        "south": {"uv": [0, 0, 16, 16], "texture": "#lower"},
+        "west":  {"uv": [0, 0, 16, 16], "texture": "#lower"},
+        "up":    {"uv": [0, 0, 16, 16], "texture": "#lower"},
+        "down":  {"uv": [0, 0, 16, 16], "texture": "#lower"}
+      }
+    },
+    {
+      "name": "top_half",
+      "from": [0, 16, 0],
+      "to": [16, 32, 16],
+      "faces": {
+        "north": {"uv": [0, 0, 16, 16], "texture": "#upper"},
+        "east":  {"uv": [0, 0, 16, 16], "texture": "#upper"},
+        "south": {"uv": [0, 0, 16, 16], "texture": "#upper"},
+        "west":  {"uv": [0, 0, 16, 16], "texture": "#upper"},
+        "up":    {"uv": [0, 0, 16, 16], "texture": "#upper"},
+        "down":  {"uv": [0, 0, 16, 16], "texture": "#upper"}
+      }
+    }
+  ]
+}
