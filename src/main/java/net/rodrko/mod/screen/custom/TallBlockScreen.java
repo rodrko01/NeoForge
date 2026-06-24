@@ -55,7 +55,7 @@ public class TallBlockScreen extends AbstractContainerScreen<TallBlockMenu> {
         this.imageHeight = 196;
         this.inventoryLabelY = this.imageHeight -  94;
 
-        System.out.println("SCREEN OPENED! FuelTime = " + menu.getFuelTime());
+//        System.out.println("SCREEN OPENED! FuelTime = " + menu.getFuelTime());
     }
 
     @Override

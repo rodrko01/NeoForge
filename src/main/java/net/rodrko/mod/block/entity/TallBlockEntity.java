@@ -164,14 +164,14 @@ public class TallBlockEntity extends BlockEntity implements MenuProvider {
 
     private void debugFuelChange(String location) {
         if (lastFuelTime != fuelTime) {
-            System.out.println("[DEBUG] " + location + " | fuelTime changed from " + lastFuelTime + " to " + fuelTime);
+            //System.out.println("[DEBUG] " + location + " | fuelTime changed from " + lastFuelTime + " to " + fuelTime);
             lastFuelTime = fuelTime;
         }
     }
 
     public void tick(Level level1, BlockPos blockPos, BlockState blockState) {
         if (level1.isClientSide()) return;
-        System.out.println("DEBUG: maxProgress = " + maxProgress);
+        //System.out.println("DEBUG: maxProgress = " + maxProgress);
 
         long currentTick = level1.getGameTime();
         if (currentTick == lastTick) {
@@ -190,11 +190,11 @@ public class TallBlockEntity extends BlockEntity implements MenuProvider {
 
         debugFuelChange("START OF TICK");
 
-        System.out.println("Tick - FuelTime: " + fuelTime + ", HasRecipe: " + hasRecipe + ", Progress: " + progress);
+        //System.out.println("Tick - FuelTime: " + fuelTime + ", HasRecipe: " + hasRecipe + ", Progress: " + progress);
 
         // if oval is empty (no fuel), and blaze powder is in slot 0, valid recipe, extract the powder
         if (fuelTime <= 0 && hasFuel && hasRecipe) {
-            System.out.println(">>> FUEL CONSUMED! Setting fuelTime to " + MAX_FUEL_TIME);
+            //System.out.println(">>> FUEL CONSUMED! Setting fuelTime to " + MAX_FUEL_TIME);
             itemHandler.extractItem(FUEL_SLOT, 1, false);
             fuelTime = MAX_FUEL_TIME;
             debugFuelChange("FUEL CONSUMED BLOCK");
@@ -202,9 +202,9 @@ public class TallBlockEntity extends BlockEntity implements MenuProvider {
         }
 
         if (fuelTime > 0 && hasRecipe) {
-            System.out.println(">>> ENTERED CRAFT LOOP! progress before: " + progress);
+            //System.out.println(">>> ENTERED CRAFT LOOP! progress before: " + progress);
             progress++;
-            System.out.println(">>> progress after increment: " + progress);
+            //System.out.println(">>> progress after increment: " + progress);
             setChanged(level1, blockPos, blockState);
 
             if (progress >= maxProgress) {
@@ -260,7 +260,7 @@ public class TallBlockEntity extends BlockEntity implements MenuProvider {
                 );
     }
     private void craftItem(TallBlockRecipe recipeValue) {
-        System.out.println("Upgrading items:");
+//        System.out.println("Upgrading items:");
         itemHandler.extractItem(ITEM1_SLOT, 1, false);
         itemHandler.setStackInSlot(ITEM1_SLOT, recipeValue.outputSlot3().copy());
 
@@ -289,8 +289,8 @@ public class TallBlockEntity extends BlockEntity implements MenuProvider {
 
         TallBlockRecipe recipeValue = recipe.get().value();
 
-        System.out.println("Recipe found!");
-        System.out.println("Recipe Output: " + recipeValue.outputSlot3().getItem());
+//        System.out.println("Recipe found!");
+//        System.out.println("Recipe Output: " + recipeValue.outputSlot3().getItem());
         if (itemHandler.getStackInSlot(BOTTLE_SLOT).getCount() < recipeValue.slot1Count()) return false;
         if (itemHandler.getStackInSlot(COMPONENT_SLOT).getCount() < recipeValue.slot2Count()) return false;
         if (itemHandler.getStackInSlot(ITEM1_SLOT).getCount() < recipeValue.slot3Count()) return false;
