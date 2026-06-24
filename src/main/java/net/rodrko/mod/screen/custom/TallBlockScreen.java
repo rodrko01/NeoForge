@@ -25,19 +25,29 @@ public class TallBlockScreen extends AbstractContainerScreen<TallBlockMenu> {
     private static final int COIL_HEIGHT = 12;
 
     private static final int OVAL_X = 78;
-    private static final int OVAL_Y = 86;
+    private static final int OVAL_Y = 93;
     private static final int OVAL_HEIGHT = 6;
     private static final int OVAL_WIDTH = 18;
 
     private static final int RIGHT_BAR_X = 120;
-    private static final int RIGHT_BAR_Y = 49; // bottom of bar
+    private static final int RIGHT_BAR_Y = 71; // bottom of bar
     private static final int RIGHT_BAR_WIDTH = 8;
     private static final int RIGHT_BAR_HEIGHT = 24;
 
+    private static final int RIGHT_BAR2_X = 120;
+    private static final int RIGHT_BAR2_Y = 18; // top of bar
+    private static final int RIGHT_BAR2_WIDTH = 8;
+    private static final int RIGHT_BAR2_HEIGHT = 24;
+
     private static final int LEFT_BAR_X = 46;
-    private static final int LEFT_BAR_Y = 49; // bottom of bar
+    private static final int LEFT_BAR_Y = 71; // bottom of bar
     private static final int LEFT_BAR_WIDTH = 8;
     private static final int LEFT_BAR_HEIGHT = 24;
+
+    private static final int LEFT_BAR2_X = 46;
+    private static final int LEFT_BAR2_Y = 18; // top of bar
+    private static final int LEFT_BAR2_WIDTH = 8;
+    private static final int LEFT_BAR2_HEIGHT = 24;
 
     public TallBlockScreen(TallBlockMenu menu, Inventory inventory, Component component) {
         super(menu, inventory, component);
@@ -78,15 +88,22 @@ public class TallBlockScreen extends AbstractContainerScreen<TallBlockMenu> {
         // only calculate percent if max progress is > 0
         float progressPercent = maxProgress > 0 ? Math.min(1.0F, (float) progress / maxProgress) : 0F;
 
+        int delayedProgress = progress - 2;
+        if (delayedProgress < 0) delayedProgress = 0;
+
+        float delayedPercent = Math.min(1.0F, (float) delayedProgress / maxProgress);
         int barHeight = (int) (LEFT_BAR_HEIGHT * progressPercent);
+        int bar2Height = (int) (LEFT_BAR2_HEIGHT * delayedPercent);
+        int rightHeight = (int) (RIGHT_BAR_HEIGHT * progressPercent);
+        int right2Height = (int) (RIGHT_BAR2_HEIGHT * delayedPercent);
 
         if (barHeight > 0) {
             RenderSystem.setShaderTexture(0, WHITE_BARS);
 
-            // left bar
+            // left bars down to top
             guiGraphics.blit(WHITE_BARS,
                     x + LEFT_BAR_X,
-                    y + LEFT_BAR_Y -barHeight,
+                    y + LEFT_BAR_Y - barHeight,
                     0, LEFT_BAR_HEIGHT - barHeight,
                     LEFT_BAR_WIDTH,
                     barHeight,
@@ -95,12 +112,32 @@ public class TallBlockScreen extends AbstractContainerScreen<TallBlockMenu> {
             // right bar
             guiGraphics.blit(WHITE_BARS,
                     x + RIGHT_BAR_X,
-                    y + RIGHT_BAR_Y - barHeight,
-                    0, RIGHT_BAR_HEIGHT - barHeight,
+                    y + RIGHT_BAR_Y - rightHeight,
+                    0, RIGHT_BAR_HEIGHT - rightHeight,
                     RIGHT_BAR_WIDTH,
-                    barHeight,
+                    rightHeight,
                     RIGHT_BAR_WIDTH,
                     RIGHT_BAR_HEIGHT);
+        }
+        if (bar2Height > 0) {
+            // left bar 2 top to down
+            guiGraphics.blit(WHITE_BARS,
+                    x + LEFT_BAR2_X,
+                    y + LEFT_BAR2_Y,
+                    0, 0,
+                    LEFT_BAR2_WIDTH,
+                    bar2Height,
+                    LEFT_BAR2_WIDTH,
+                    LEFT_BAR_HEIGHT);
+            // right bar 2 top to down
+            guiGraphics.blit(WHITE_BARS,
+                    x + RIGHT_BAR2_X,
+                    y + RIGHT_BAR2_Y, // starts at top
+                    0,0,
+                    RIGHT_BAR2_WIDTH,
+                    right2Height,
+                    RIGHT_BAR2_WIDTH,
+                    RIGHT_BAR2_HEIGHT);
         }
     }
 

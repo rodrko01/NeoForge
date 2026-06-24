@@ -19,24 +19,24 @@ public class TallBlockMenu extends AbstractContainerMenu {
     private final ContainerData data;
     private final Level level;
 
-    private static final int FUEL_SLOT_X = 17;
-    private static final int FUEL_SLOT_Y = 74;
+    private static final int FUEL_SLOT_X = 33;
+    private static final int FUEL_SLOT_Y = 81;
     private static final int BOTTLE_SLOT_X = 79;
-    private static final int BOTTLE_SLOT_Y = 67;
+    private static final int BOTTLE_SLOT_Y = 74;
     private static final int COMPONENT_SLOT_X = 79;
-    private static final int COMPONENT_SLOT_Y = 9;
+    private static final int COMPONENT_SLOT_Y = 16;
 
     private static final int ITEM1_SLOT_X = 59;
-    private static final int ITEM1_SLOT_Y = 30;
+    private static final int ITEM1_SLOT_Y = 37;
     private static final int ITEM2_SLOT_X = 79;
-    private static final int ITEM2_SLOT_Y = 38;
+    private static final int ITEM2_SLOT_Y = 45;
     private static final int ITEM3_SLOT_X = 99;
-    private static final int ITEM3_SLOT_Y = 30;
+    private static final int ITEM3_SLOT_Y = 37;
 
     private static final int PLAYER_INVENTORY_X = 8;
-    private static final int PLAYER_INVENTORY_Y = 101;
+    private static final int PLAYER_INVENTORY_Y = 114;
     private static final int HOTBAR_X = 8;
-    private static final int HOTBAR_Y = 159;
+    private static final int HOTBAR_Y = 172;
 
     public TallBlockMenu(int containerId, Inventory inv, FriendlyByteBuf extraData) {
         this(containerId, inv,

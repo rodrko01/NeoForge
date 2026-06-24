@@ -91,7 +91,7 @@ public class TallBlockEntity extends BlockEntity implements MenuProvider {
     private int progress = 0;
     private int maxProgress = 144;
     private int fuelTime = 0;
-    private final int MAX_FUEL_TIME = 3 * 72;
+    private final int MAX_FUEL_TIME = 3 * 144;
 
     private int lastFuelTime = -1;
 
@@ -99,7 +99,7 @@ public class TallBlockEntity extends BlockEntity implements MenuProvider {
         super(ModBlockEntities.TALL_BLOCK_BE.get(), pos, blockState);
         // initialize the data array with default values
         dataArray[0] = 0;
-        dataArray[1] = 72;
+        dataArray[1] = 144;
         dataArray[2] = 0;
     }
 
@@ -141,6 +141,8 @@ public class TallBlockEntity extends BlockEntity implements MenuProvider {
         progress = pTag.getInt("tall_block.progress");
         maxProgress = pTag.getInt("tall_block.max_progress");
         fuelTime = pTag.getInt("tall_block.fuel_time");
+
+        if (maxProgress <= 0) maxProgress = 144;
 
         dataArray[0] = progress;
         dataArray[1] = maxProgress;
@@ -200,8 +202,6 @@ public class TallBlockEntity extends BlockEntity implements MenuProvider {
         }
 
         if (fuelTime > 0 && hasRecipe) {
-            hasCrafted = true;
-
             System.out.println(">>> ENTERED CRAFT LOOP! progress before: " + progress);
             progress++;
             System.out.println(">>> progress after increment: " + progress);
@@ -225,8 +225,12 @@ public class TallBlockEntity extends BlockEntity implements MenuProvider {
                 dataArray[0] = progress;
                 debugFuelChange("RESET PROGRESS (fuelTime unchanged");
             }
-        } else {
-            hasCrafted = false;
+        } else if (!hasRecipe){
+            if (progress > 0) {
+                resetProgress();
+                dataArray[0] = progress;
+
+            }
         }
 
         debugFuelChange("END OF TICK BEFORE SYNC");
