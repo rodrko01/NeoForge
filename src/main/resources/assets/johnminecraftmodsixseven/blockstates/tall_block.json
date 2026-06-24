@@ -1,13 +1,23 @@
 {
   "variants": {
-    "half=lower,facing=north": { "model": "johnminecraftmodsixseven:block/tall_block_bottom" },
-    "half=lower,facing=south": { "model": "johnminecraftmodsixseven:block/tall_block_bottom", "y": 180 },
-    "half=lower,facing=west":  { "model": "johnminecraftmodsixseven:block/tall_block_bottom", "y": 270 },
-    "half=lower,facing=east":  { "model": "johnminecraftmodsixseven:block/tall_block_bottom", "y": 90 },
+    "half=lower,facing=north,crafting=false": { "model": "johnminecraftmodsixseven:block/tall_block_bottom" },
+    "half=lower,facing=south,crafting=false": { "model": "johnminecraftmodsixseven:block/tall_block_bottom", "y": 180 },
+    "half=lower,facing=west,crafting=false":  { "model": "johnminecraftmodsixseven:block/tall_block_bottom", "y": 270 },
+    "half=lower,facing=east,crafting=false":  { "model": "johnminecraftmodsixseven:block/tall_block_bottom", "y": 90 },
 
-    "half=upper,facing=north": { "model": "johnminecraftmodsixseven:block/tall_block_top" },
-    "half=upper,facing=south": { "model": "johnminecraftmodsixseven:block/tall_block_top", "y": 180 },
-    "half=upper,facing=west":  { "model": "johnminecraftmodsixseven:block/tall_block_top", "y": 270 },
-    "half=upper,facing=east":  { "model": "johnminecraftmodsixseven:block/tall_block_top", "y": 90 }
+    "half=lower,facing=north,crafting=true": { "model": "johnminecraftmodsixseven:block/tall_block_bottom_alt" },
+    "half=lower,facing=south,crafting=true": { "model": "johnminecraftmodsixseven:block/tall_block_bottom_alt", "y": 180 },
+    "half=lower,facing=west,crafting=true":  { "model": "johnminecraftmodsixseven:block/tall_block_bottom_alt", "y": 270 },
+    "half=lower,facing=east,crafting=true":  { "model": "johnminecraftmodsixseven:block/tall_block_bottom_alt", "y": 90 },
+
+    "half=upper,facing=north,crafting=false": { "model": "johnminecraftmodsixseven:block/tall_block_top" },
+    "half=upper,facing=south,crafting=false": { "model": "johnminecraftmodsixseven:block/tall_block_top", "y": 180 },
+    "half=upper,facing=west,crafting=false":  { "model": "johnminecraftmodsixseven:block/tall_block_top", "y": 270 },
+    "half=upper,facing=east,crafting=false":  { "model": "johnminecraftmodsixseven:block/tall_block_top", "y": 90 },
+
+    "half=upper,facing=north,crafting=true": { "model": "johnminecraftmodsixseven:block/tall_block_top_alt" },
+    "half=upper,facing=south,crafting=true": { "model": "johnminecraftmodsixseven:block/tall_block_top_alt", "y": 180 },
+    "half=upper,facing=west,crafting=true":  { "model": "johnminecraftmodsixseven:block/tall_block_top_alt", "y": 270 },
+    "half=upper,facing=east,crafting=true":  { "model": "johnminecraftmodsixseven:block/tall_block_top_alt", "y": 90 }
   }
 }

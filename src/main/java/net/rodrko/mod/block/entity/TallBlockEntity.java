@@ -19,7 +19,9 @@ import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.neoforged.neoforge.items.ItemStackHandler;
+import net.rodrko.mod.block.custom.TallBlock;
 import net.rodrko.mod.recipe.ModRecipes;
 import net.rodrko.mod.recipe.TallBlockRecipe;
 import net.rodrko.mod.recipe.TallBlockRecipeInput;
@@ -197,7 +199,7 @@ public class TallBlockEntity extends BlockEntity implements MenuProvider {
             //System.out.println(">>> FUEL CONSUMED! Setting fuelTime to " + MAX_FUEL_TIME);
             itemHandler.extractItem(FUEL_SLOT, 1, false);
             fuelTime = MAX_FUEL_TIME;
-            debugFuelChange("FUEL CONSUMED BLOCK");
+//            debugFuelChange("FUEL CONSUMED BLOCK");
             dataArray[2] = fuelTime;
         }
 
@@ -220,10 +222,10 @@ public class TallBlockEntity extends BlockEntity implements MenuProvider {
                 }
                 fuelTime -= (MAX_FUEL_TIME/3);
                 dataArray[2] = fuelTime;
-                debugFuelChange("FUEL DECREASED AFTER COMPLETE");
+//                debugFuelChange("FUEL DECREASED AFTER COMPLETE");
                 resetProgress();
                 dataArray[0] = progress;
-                debugFuelChange("RESET PROGRESS (fuelTime unchanged");
+//                debugFuelChange("RESET PROGRESS (fuelTime unchanged");
             }
         } else if (!hasRecipe){
             if (progress > 0) {
@@ -232,8 +234,21 @@ public class TallBlockEntity extends BlockEntity implements MenuProvider {
 
             }
         }
+        // debugFuelChange("END OF TICK BEFORE SYNC");
 
-        debugFuelChange("END OF TICK BEFORE SYNC");
+        boolean isCrafting = fuelTime > 0 && hasRecipe();
+        BlockState currentState = level1.getBlockState(blockPos);
+        if (currentState.getValue(TallBlock.CRAFTING) != isCrafting) {
+            level1.setBlock(blockPos, currentState.setValue(TallBlock.CRAFTING,isCrafting), 3); // update lower
+            if (currentState.getValue(TallBlock.HALF) == DoubleBlockHalf.LOWER) {
+                BlockPos upperPos = blockPos.above();
+                BlockState upperState = level1.getBlockState(upperPos);
+                if (upperState.getBlock() == this.getBlockState().getBlock()){
+                    level1.setBlock(upperPos, upperState.setValue(TallBlock.CRAFTING, isCrafting), 3);
+                }
+            }
+        }
+
 
         dataArray[0] = progress;
         dataArray[1] = maxProgress;

@@ -71,7 +71,7 @@ public class TallBlockScreen extends AbstractContainerScreen<TallBlockMenu> {
         int fuelTime = this.menu.getFuelTime();
 
         if (fuelTime > 0) {
-            float fuelPercent = Math.min(1.0F, (float) fuelTime / 216F);
+            float fuelPercent = Math.min(1.0F, (float) fuelTime / 432F); // make sure to change this if you change maxProgress & maxFuelTime
             int ovalWidth = (int) (18F * fuelPercent);
             RenderSystem.setShaderTexture(0, OVAL_FILLED);
             guiGraphics.blit(OVAL_FILLED,
