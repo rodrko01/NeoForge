@@ -75,9 +75,9 @@ public class TallBlockScreen extends AbstractContainerScreen<TallBlockMenu> {
             int ovalWidth = (int) (18F * fuelPercent);
             RenderSystem.setShaderTexture(0, OVAL_FILLED);
             guiGraphics.blit(OVAL_FILLED,
-                    x + OVAL_X + (18 - ovalWidth),
+                    x + OVAL_X, // anchor left
                     y + OVAL_Y,
-                    18 - ovalWidth, 0,
+                    0, 0, // reads from left of texture
                     ovalWidth, 6, 18, 6);
         }
 
