@@ -1,5 +1,8 @@
 {
   "item.johnminecraftmodsixseven.stink": "Stink",
   "block.johnminecraftmodsixseven.stink_block": "block of stiiink",
-  "block.johnminecraftmodsixseven.tall_block": "taaaaall block"
+  "block.johnminecraftmodsixseven.tall_block": "taaaaall block",
+  "item.minecraft.potion.effect.gay_potion": "potion make u gay",
+  "item.minecraft.splash_potion.effect.gay_potion": "potion make u gay",
+  "item.minecraft.lingering_potion.effect.gay_potion": "potion make u gay"
 }

@@ -12,6 +12,7 @@ import net.rodrko.mod.block.ModBlocks;
 import net.rodrko.mod.block.entity.ModBlockEntities;
 import net.rodrko.mod.block.entity.renderer.PedestalBlockEntityRenderer;
 import net.rodrko.mod.item.ModItems;
+import net.rodrko.mod.potion.ModPotions;
 import net.rodrko.mod.recipe.ModRecipes;
 import net.rodrko.mod.screen.ModMenuTypes;
 import net.rodrko.mod.screen.custom.GrowthChamberScreen;
@@ -72,6 +73,7 @@ public class StinkyMod {
         ModBlockEntities.register(modEventBus);
         ModMenuTypes.register(modEventBus);
         ModRecipes.register(modEventBus);
+        ModPotions.register(modEventBus);
 
         // Register the Deferred Register to the mod event bus so items get registered
         ITEMS.register(modEventBus);
